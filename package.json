@@ -10,10 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "axios": "^0.18.0",
     "react": "16.6.3",
     "react-native": "0.58.6",
-    "react-navigation": "^3.3.2"
+    "react-navigation": "^3.3.2",
+    "rn-fetch-blob": "^0.10.15"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",

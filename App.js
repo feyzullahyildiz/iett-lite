@@ -25,7 +25,6 @@ export default class App extends Component {
   onTestClick() {
     busListOnStop('134011').then(res => {
       console.log('RES', res);
-      alert('OLDU LAN')
       this.setState({success: true})
     }).catch(err => {
       console.log('ERR', err)
