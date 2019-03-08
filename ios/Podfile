@@ -1,0 +1,6 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'iett_lite' do
+  pod 'TrustKit', '~> 1.4.2'
+end

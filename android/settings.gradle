@@ -1,0 +1,4 @@
+rootProject.name = 'iett_lite'
+
+include ':app'
+
