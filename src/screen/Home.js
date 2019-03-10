@@ -13,15 +13,15 @@ import {
 // import { searchStop } from '../url.js';
 // import { MonoText } from '../components/StyledText';
 // import { getStopList } from '../db';
-export default class HomeScreen extends React.Component {
+export default class Home extends React.Component {
   static navigationOptions = (props) => {
     return {
       title: 'Duraklar',
       headerRight: (
         <Button
-          onPress={() => { props.navigation.push('StopSearch') }}
+          onPress={() => { props.navigation.push('SearchStop') }}
           title="Ekle"
-          style={{ marginRight: 5 }}
+          style={styles.headerButton}
         />
       )
     }
@@ -86,6 +86,9 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  headerButton: {
+    margin: 5
+  },
   searchListContainer: {
     margin: 10,
   },
