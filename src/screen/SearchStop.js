@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, ScrollView, FlatList } from 'react-native';
 import { searchStopByText } from '../url';
 import StopItem from '../components/StopItem';
+import { addStop_DB } from '../db';
 export default class SearchStop extends React.Component {
     static navigationOptions = (props) => {
         return {
@@ -16,16 +17,13 @@ export default class SearchStop extends React.Component {
     onSearchChange = (text) => {
         clearTimeout(this.timeoutId);
         this.timeoutId = setTimeout(() => {
-            searchStopByText(text).then(response => {
-                // console.log('RESPONSE', response);
+            searchStopByText(encodeURI(text)).then(response => {
                 this.setState({ stopList: response })
             })
         }, 700)
     }
     onStopPress = (item) => {
-        console.log('ITEM', item);
-        console.log('nav', this.props)
-        this.props.navigation.push('DetailStop', { id: item.durak_kodu })
+        this.props.navigation.push('DetailStop', { stop: item})
     }
     render() {
         return (
@@ -36,7 +34,7 @@ export default class SearchStop extends React.Component {
                 <FlatList
                     data={this.state.stopList}
                     keyExtractor={(item) => item.durak_kodu}
-                    renderItem={({ item }) => <StopItem item={item} click={() => this.onStopPress(item)}/>}
+                    renderItem={({ item }) => <StopItem item={item} click={() => this.onStopPress(item)} />}
                 />
             </View>
         );
